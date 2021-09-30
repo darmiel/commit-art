@@ -4,6 +4,7 @@ from random import choice
 from email import utils
 import string
 import json
+import time
 #
 from PIL import Image
 from git import Repo
@@ -30,7 +31,8 @@ if __name__ == '__main__':
 
     # create starting date
     # I dunno if this works correctly.
-    sdp = datetime.now()
+    tyme = time.time()
+    sdp = datetime.fromtimestamp(tyme - (tyme % 86400))
     if sdp.weekday() < 6:
         sdp -= timedelta(days=sdp.weekday() + 1)
     sdp -= timedelta(days=364)
@@ -38,6 +40,7 @@ if __name__ == '__main__':
         sdp -= timedelta(days=1)
 
     print("start date:", sdp)
+    exit(0)
 
     repo: Repo
     if not path.exists(REPO_NAME):
@@ -92,6 +95,7 @@ if __name__ == '__main__':
                                   # author=Actor(COMMIT_NAME, COMMIT_NAME),
                                   # committer=Actor(COMMIT_NAME, COMMIT_EMAIL),
                                   commit_date=utils.format_datetime(sdp),
+                                  author_date=utils.format_datetime(sdp),
                                   skip_hooks=True)
 
                 sdp += timedelta(seconds=1)
