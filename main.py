@@ -20,7 +20,6 @@ def ran(length: int = 10) -> str:
 ##################################################################################################################
 # IMAGE DIMENSIONS MUST BE 50px by 7px
 INPUT_IMAGE = "gh-pixel-maker-pt3.png"
-STARTING_DATE = datetime(2020, 10, 4)
 REPO_NAME = "art"
 BRANCH_NAME = "art-" + ran()
 COMMITS_HIGH: int = 10
@@ -74,7 +73,7 @@ if __name__ == '__main__':
             alpha = img.getpixel((x, y))[3]
 
             # calculate number of commits for the date
-            commits = min(COMMITS_HIGH, round(10 / 255 * alpha))
+            commits = min(COMMITS_HIGH, round(COMMITS_HIGH / 255 * alpha))
             if commits <= 0:
                 continue
 
@@ -99,4 +98,3 @@ if __name__ == '__main__':
 
             # remove commit secs
             sdp -= timedelta(seconds=commits)
-            sdp += timedelta(days=1)
