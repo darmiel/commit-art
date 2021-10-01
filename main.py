@@ -38,9 +38,9 @@ if __name__ == '__main__':
     sdp -= timedelta(days=364)
     while sdp.weekday() != 6:  # 6 = sunday
         sdp -= timedelta(days=1)
+    sdp -= timedelta(days=1)
 
     print("start date:", sdp)
-    exit(0)
 
     repo: Repo
     if not path.exists(REPO_NAME):
