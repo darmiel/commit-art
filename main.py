@@ -20,7 +20,7 @@ def ran(length: int = 10) -> str:
 
 ##################################################################################################################
 # IMAGE DIMENSIONS MUST BE 50px by 7px
-INPUT_IMAGE = "gh-pixel-maker-pt3.png"
+INPUT_IMAGE = "example.png"
 REPO_NAME = "art"
 BRANCH_NAME = "art-" + ran()
 COMMITS_HIGH: int = 10
